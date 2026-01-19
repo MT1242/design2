@@ -1,0 +1,466 @@
+/* === 1. GLOBAL & COLORS === */
+:root {
+  --primary: #00d4ff;
+  --secondary: #ff0055;
+  --dark: #080808;
+  --card-bg: #151515;
+  --gray: #888;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(rgba(8, 8, 8, 0.199), rgba(8, 8, 8, 0.116)),
+    url("https://images.unsplash.com/photo-1614850523296-d8c1af93d400?w=1600");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* === 2. REUSABLE SLIDER COMPONENTS === */
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.slider-container {
+  display: flex;
+  gap: 25px;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 10px 0;
+}
+
+.slider-container::-webkit-scrollbar {
+  display: none;
+}
+
+.slide-item {
+  flex: 0 0 300px;
+  transition: 0.3s;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 212, 255, 0.3);
+  border: none;
+  color: white;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: 0.3s;
+  backdrop-filter: blur(5px);
+}
+
+.nav-btn:hover {
+  background: var(--primary);
+  color: black;
+}
+
+.prev-btn {
+  left: 0;
+}
+
+.next-btn {
+  right: 0;
+}
+
+/* === 3. HEADER & ANNOUNCEMENT === */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  background: rgba(0, 0, 0, 0.9);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #222;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--primary);
+  letter-spacing: 2px;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.nav-menu a:hover {
+  color: var(--primary);
+}
+
+.announcement {
+  background: var(--secondary);
+  padding: 8px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.announcement p {
+  display: inline-block;
+  animation: marquee 15s linear infinite;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* === 4. HERO SLIDE === */
+.hero-slider {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: 1s;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid var(--primary);
+}
+
+/* === 5. CHARACTER CARDS === */
+.section {
+  padding: 60px 5%;
+}
+
+.card {
+  height: 400px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.card-back {
+  background: var(--primary);
+  color: black;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* === 6. NEW: 3D SHOWCASE SLIDE (Thay thế Before/After) === */
+.showcase-section {
+  background: radial-gradient(circle at center, #111 0%, #000 100%);
+  perspective: 1500px;
+  overflow: hidden;
+  padding: 80px 0;
+}
+
+.showcase-container {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  transform-style: preserve-3d;
+}
+
+.showcase-item {
+  position: absolute;
+  width: 550px;
+  height: 350px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  filter: brightness(0.4);
+}
+
+.showcase-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.showcase-info {
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  width: 100%;
+  padding: 30px 20px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+  transition: 0.5s;
+  text-align: center;
+}
+
+.showcase-item.active {
+  z-index: 10;
+  transform: translate(-50%, -50%) scale(1.1);
+  filter: brightness(1);
+}
+
+.showcase-item.active .showcase-info {
+  bottom: 0;
+}
+
+.showcase-item.prev {
+  z-index: 5;
+  transform: translate(-105%, -50%) scale(0.8) rotateY(30deg);
+  opacity: 0.5;
+}
+
+.showcase-item.next {
+  z-index: 5;
+  transform: translate(5%, -50%) scale(0.8) rotateY(-30deg);
+  opacity: 0.5;
+}
+
+.showcase-controls {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.s-btn {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.s-btn:hover {
+  background: var(--primary);
+  color: black;
+  box-shadow: 0 0 15px var(--primary);
+}
+
+/* === 7. ZOOM GALLERY === */
+.zoom-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 300px;
+}
+
+.zoom-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.zoom-item:hover img {
+  transform: scale(1.1);
+}
+
+.zoom-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.zoom-item:hover .zoom-overlay {
+  opacity: 1;
+}
+
+/* === 8. FOOTER === */
+footer {
+  background: #000;
+  padding: 50px 5% 20px;
+  border-top: 1px solid #222;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+}
+
+.footer-col h3 {
+  color: var(--primary);
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.footer-col p,
+.footer-col a {
+  color: var(--gray);
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 2;
+  display: block;
+}
+
+.socials {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.socials a {
+  font-size: 20px;
+  color: var(--gray);
+  transition: 0.3s;
+}
+
+.socials a:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .showcase-item {
+    width: 300px;
+    height: 200px;
+  }
+
+  .showcase-container {
+    height: 250px;
+  }
+}
+/* === PARTNER & CLIENT SLIDES === */
+.partner-section,
+.client-section {
+    padding: 50px 5%;
+    background: #000;
+    border-top: 1px solid #222;
+}
+
+.partner-track {
+    display: flex;
+    gap: 60px;
+    animation: partner-scroll 25s linear infinite;
+    align-items: center;
+}
+
+.partner-track img {
+    height: 50px;
+    opacity: 0.7;
+    transition: 0.3s;
+    filter: grayscale(100%);
+}
+
+.partner-track img:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+@keyframes partner-scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* CLIENT SLIDER */
+.client-card {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.client-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.client-card img {
+    height: 60px;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
