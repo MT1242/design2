@@ -318,6 +318,121 @@ header {
   box-shadow: 0 0 15px var(--primary);
 }
 
+
+/* ===== PREMIUM SHOWCASE ===== */
+.premium-showcase {
+    background: radial-gradient(circle at center, #111 0%, #000 100%);
+    padding: 80px 0;
+    perspective: 1600px;
+    overflow: hidden;
+}
+
+.premium-title {
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--primary);
+    letter-spacing: 2px;
+}
+
+/* Viewport */
+.premium-showcase__viewport {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    height: 420px;
+    margin: 0 auto;
+    transform-style: preserve-3d;
+}
+
+/* Slide base */
+.premium-slide {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 560px;
+    height: 360px;
+    transform: translate(-50%, -50%) scale(0.6);
+    border-radius: 20px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+    filter: brightness(0.4);
+}
+
+.premium-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Info */
+.premium-info {
+    position: absolute;
+    bottom: -110px;
+    left: 0;
+    width: 100%;
+    padding: 30px 20px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+    text-align: center;
+    transition: 0.5s;
+}
+
+/* Active */
+.premium-slide.is-active {
+    transform: translate(-50%, -50%) scale(1.1);
+    z-index: 3;
+    opacity: 1;
+    filter: brightness(1);
+    pointer-events: auto;
+}
+
+.premium-slide.is-active .premium-info {
+    bottom: 0;
+}
+
+/* Prev / Next */
+.premium-slide.is-prev,
+.premium-slide.is-next {
+    opacity: 0.6;
+    z-index: 2;
+}
+
+.premium-slide.is-prev {
+    transform: translate(-115%, -50%) scale(0.8) rotateY(30deg);
+}
+
+.premium-slide.is-next {
+    transform: translate(15%, -50%) scale(0.8) rotateY(-30deg);
+}
+
+/* Controls */
+.premium-controls {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.premium-btn {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.premium-btn:hover {
+    background: var(--primary);
+    color: #000;
+    box-shadow: 0 0 15px var(--primary);
+}
+
 /* === 7. ZOOM GALLERY === */
 .zoom-item {
   position: relative;

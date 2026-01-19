@@ -130,37 +130,57 @@
         </div>
     </section>
 
-    <section class="section showcase-section">
-        <h2 style="text-align: center; margin-bottom: 40px; color: var(--primary); letter-spacing: 2px;">
-            PREMIUM RENDERING ART</h2>
-        <div class="showcase-container">
-            <div class="showcase-item active">
-                <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?w=800">
-                <div class="showcase-info">
+    <section class="premium-showcase">
+        <h2 class="premium-title">PREMIUM RENDERING ART</h2>
+
+        <div class="premium-showcase__viewport">
+            <div class="premium-slide">
+                <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?w=800" />
+                <div class="premium-info">
                     <h3>Epic Dragon Lair</h3>
                     <p>Render ánh sáng môi trường phức tạp</p>
                 </div>
             </div>
-            <div class="showcase-item next">
-                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800">
-                <div class="showcase-info">
+
+            <div class="premium-slide">
+                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800" />
+                <div class="premium-info">
                     <h3>Cyberpunk Hub</h3>
                     <p>Chi tiết vật liệu Neon và phản chiếu</p>
                 </div>
             </div>
-            <div class="showcase-item prev">
-                <img src="https://images.unsplash.com/photo-1580234811497-9bd7fd2f357d?w=800">
-                <div class="showcase-info">
+
+            <div class="premium-slide">
+                <img src="https://images.unsplash.com/photo-1580234811497-9bd7fd2f357d?w=800" />
+                <div class="premium-info">
                     <h3>Ancient Temple</h3>
                     <p>Tối ưu hóa texture độ phân giải cao</p>
                 </div>
             </div>
+
+            <div class="premium-slide">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800" />
+                <div class="premium-info">
+                    <h3>Futuristic Lab</h3>
+                    <p>Vật liệu PBR & ánh sáng HDRI</p>
+                </div>
+            </div>
+
+            <div class="premium-slide">
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800" />
+                <div class="premium-info">
+                    <h3>Fantasy Valley</h3>
+                    <p>Không gian rộng và chiều sâu cảnh</p>
+                </div>
+            </div>
         </div>
-        <div class="showcase-controls">
-            <button class="s-btn" onclick="rotateShowcase(-1)"><i class="fas fa-chevron-left"></i></button>
-            <button class="s-btn" onclick="rotateShowcase(1)"><i class="fas fa-chevron-right"></i></button>
+
+        <div class="premium-controls">
+            <button class="premium-btn" id="premiumPrev">&#10094;</button>
+            <button class="premium-btn" id="premiumNext">&#10095;</button>
         </div>
     </section>
+
 
     <section class="section" id="projects">
         <h2 style="margin-bottom: 20px; color: var(--primary);"># Dự Án Tiêu Biểu</h2>
@@ -299,6 +319,7 @@
 
     <!-- JS CỦA BẠN (NẾU CÓ) -->
     <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/premiumShowcase.js"></script>
 
 
 </body>
