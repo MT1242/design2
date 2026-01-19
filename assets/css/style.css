@@ -25,6 +25,22 @@ body {
   scroll-behavior: smooth;
 }
 
+.section {
+  position: relative;
+  padding: clamp(48px, 6vw, 80px) 0;
+}
+
+.section-inner {
+  max-width: 1874px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.header-containe{
+  max-width: 1874px;
+  margin: 0 auto;
+  /* padding: 0 5%; */
+}
 /* === 2. REUSABLE SLIDER COMPONENTS === */
 .slider-wrapper {
   position: relative;
@@ -85,7 +101,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 5%;
+  padding: 15px 5% !important;
   background: rgba(0, 0, 0, 0.9);
   position: sticky;
   top: 0;
@@ -319,115 +335,122 @@ header {
 }
 
 
-/* ===== PREMIUM SHOWCASE ===== */
-.premium-showcase {
+/* ===== PREMIUM 5 SHOWCASE ===== */
+.premium5-showcase {
     background: radial-gradient(circle at center, #111 0%, #000 100%);
     padding: 80px 0;
-    perspective: 1600px;
+    perspective: 1800px;
     overflow: hidden;
 }
 
-.premium-title {
+.premium5-title {
     text-align: center;
-    margin-bottom: 50px;
     color: var(--primary);
+    margin-bottom: 50px;
     letter-spacing: 2px;
 }
 
 /* Viewport */
-.premium-showcase__viewport {
+.premium5-viewport {
     position: relative;
-    width: 100%;
-    max-width: 1100px;
-    height: 420px;
-    margin: 0 auto;
+    max-width: 1200px;
+    height: 460px;
+    margin: auto;
     transform-style: preserve-3d;
 }
 
 /* Slide base */
-.premium-slide {
+.premium5-slide {
     position: absolute;
-    left: 50%;
     top: 50%;
-    width: 560px;
-    height: 360px;
-    transform: translate(-50%, -50%) scale(0.6);
-    border-radius: 20px;
-    overflow: hidden;
+    left: 50%;
+    width: 520px;
+    height: 340px;
+    transform: translate(-50%, -50%) scale(0.5);
     opacity: 0;
     pointer-events: none;
-    transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
-    filter: brightness(0.4);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 25px 50px rgba(0,0,0,.6);
+    filter: brightness(0.3);
 }
 
-.premium-slide img {
+.premium5-slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
 /* Info */
-.premium-info {
+.premium5-info {
     position: absolute;
-    bottom: -110px;
-    left: 0;
+    bottom: -120px;
     width: 100%;
-    padding: 30px 20px;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+    padding: 25px;
+    background: linear-gradient(transparent, rgba(0,0,0,.9));
     text-align: center;
-    transition: 0.5s;
+    transition: .5s;
 }
 
-/* Active */
-.premium-slide.is-active {
-    transform: translate(-50%, -50%) scale(1.1);
-    z-index: 3;
+/* ===== 5 TRẠNG THÁI ===== */
+
+.premium5-slide.is-active {
+    transform: translate(-50%, -50%) scale(1.15);
     opacity: 1;
+    z-index: 5;
     filter: brightness(1);
     pointer-events: auto;
 }
-
-.premium-slide.is-active .premium-info {
+.premium5-slide.is-active .premium5-info {
     bottom: 0;
 }
 
-/* Prev / Next */
-.premium-slide.is-prev,
-.premium-slide.is-next {
-    opacity: 0.6;
-    z-index: 2;
+.premium5-slide.is-prev {
+    transform: translate(-135%, -50%) scale(0.85) rotateY(35deg);
+    opacity: 0.7;
+    z-index: 4;
 }
 
-.premium-slide.is-prev {
-    transform: translate(-115%, -50%) scale(0.8) rotateY(30deg);
+.premium5-slide.is-next {
+    transform: translate(35%, -50%) scale(0.85) rotateY(-35deg);
+    opacity: 0.7;
+    z-index: 4;
 }
 
-.premium-slide.is-next {
-    transform: translate(15%, -50%) scale(0.8) rotateY(-30deg);
+.premium5-slide.is-far-prev {
+    transform: translate(-215%, -50%) scale(0.65) rotateY(45deg);
+    opacity: 0.4;
+    z-index: 3;
+}
+
+.premium5-slide.is-far-next {
+    transform: translate(115%, -50%) scale(0.65) rotateY(-45deg);
+    opacity: 0.4;
+    z-index: 3;
 }
 
 /* Controls */
-.premium-controls {
+.premium5-controls {
     display: flex;
     justify-content: center;
     gap: 30px;
     margin-top: 50px;
 }
 
-.premium-btn {
+.p5-btn {
     width: 55px;
     height: 55px;
     border-radius: 50%;
-    background: transparent;
     border: 2px solid var(--primary);
+    background: transparent;
     color: var(--primary);
     font-size: 22px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: .3s;
 }
 
-.premium-btn:hover {
+.p5-btn:hover {
     background: var(--primary);
     color: #000;
     box-shadow: 0 0 15px var(--primary);
@@ -578,4 +601,7 @@ footer {
     height: 60px;
     margin-bottom: 15px;
     opacity: 0.9;
+}
+.slick-slide {
+  margin-left: 15px;
 }
