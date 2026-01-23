@@ -1,0 +1,290 @@
+/* === PRELOADER === */
+.preloader {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* === TEXT === */
+.preload-text {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: #00d4ff;
+  display: flex;
+}
+
+/* TỪNG KÝ TỰ */
+.preload-text span {
+  opacity: 0;
+  display: inline-block;
+}
+/* ===== FADE ===== */
+.effect-fade span {
+  animation: fadeIn 0.6s forwards;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.exit-fade span {
+  animation: exitFade 0.4s forwards;
+}
+@keyframes exitFade {
+  to {
+    opacity: 0;
+  }
+}
+/* ===== FADE ===== */
+.effect-fade span {
+  animation: fadeIn 0.6s forwards;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.exit-fade span {
+  animation: exitFade 0.4s forwards;
+}
+@keyframes exitFade {
+  to {
+    opacity: 0;
+  }
+}
+/* ===== GLITCH ===== */
+.effect-glitch span {
+  animation: glitchIn 0.5s forwards;
+}
+@keyframes glitchIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-4px);
+    text-shadow:
+      -2px 0 red,
+      2px 0 cyan;
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+    text-shadow: none;
+  }
+}
+
+.exit-glitch span {
+  animation: exitGlitch 0.4s forwards;
+}
+@keyframes exitGlitch {
+  to {
+    opacity: 0;
+    transform: translateX(10px);
+    text-shadow:
+      -3px 0 red,
+      3px 0 cyan;
+  }
+}
+
+/* ===== EFFECT: SCALE IN ===== */
+.effect-scale span {
+  animation: scaleIn 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== EXIT: SCALE OUT (ĐỐI XỨNG) ===== */
+.exit-scale span {
+  animation: scaleOut 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes scaleOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+
+/* ===== WAVE ===== */
+.effect-wave span {
+  animation: waveIn 0.6s ease forwards;
+}
+@keyframes waveIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.exit-slide span {
+  animation: exitSlide 0.4s ease forwards;
+}
+@keyframes exitSlide {
+  to {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+}
+/* ===== TYPE ===== */
+.effect-type span {
+  animation: typeIn 0.05s steps(1) forwards;
+}
+@keyframes typeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.exit-fade span {
+  animation: exitFade 0.4s forwards;
+}
+/* ===== ZOOM ===== */
+.effect-zoom span {
+  animation: zoomIn 0.5s cubic-bezier(0.2, 1.5, 0.4, 1) forwards;
+}
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== EXIT SCALE GLITCH ===== */
+.exit-scale span {
+  animation: exitScaleGlitch 0.5s steps(2) forwards;
+}
+
+@keyframes exitScaleGlitch {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    text-shadow: 0 0 0 cyan;
+  }
+  40% {
+    transform: scale(1.05);
+    text-shadow:
+      -2px 0 red,
+      2px 0 cyan;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.3);
+    text-shadow: none;
+  }
+}
+
+/* ===== BLUR ===== */
+.effect-blur span {
+  filter: blur(8px);
+  animation: blurIn 0.6s ease forwards;
+}
+@keyframes blurIn {
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.exit-blur span {
+  animation: exitBlur 0.5s ease forwards;
+}
+@keyframes exitBlur {
+  to {
+    opacity: 0;
+    filter: blur(10px);
+  }
+}
+/* ===== ROTATE DROP ===== */
+.effect-rotate span {
+  transform-origin: top;
+  animation: rotateDrop 0.6s ease forwards;
+}
+@keyframes rotateDrop {
+  from {
+    opacity: 0;
+    transform: rotateX(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(0);
+  }
+}
+
+.exit-drop span {
+  animation: exitDrop 0.5s ease forwards;
+}
+@keyframes exitDrop {
+  to {
+    opacity: 0;
+    transform: translateY(40px) rotateX(60deg);
+  }
+}
+/* ===== NEON ===== */
+.effect-neon span {
+  animation: neonIn 0.8s ease forwards;
+}
+@keyframes neonIn {
+  from {
+    opacity: 0;
+    text-shadow: 0 0 20px #00faff;
+  }
+  to {
+    opacity: 1;
+    text-shadow:
+      0 0 5px #00faff,
+      0 0 10px #00faff,
+      0 0 20px #00faff;
+  }
+}
+
+.exit-fade span {
+  animation: exitFade 0.4s forwards;
+}
+/* ===== FLOAT ===== */
+.effect-float span {
+  animation: floatUp 0.7s ease forwards;
+}
+@keyframes floatUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.exit-slide span {
+  animation: exitSlide 0.4s ease forwards;
+}
