@@ -12,10 +12,21 @@ tabs.forEach((tab) => {
       const category = item.dataset.category;
 
       if (filter === "all" || category === filter) {
-        item.classList.remove("hide");
+        // HIỆN
+        item.style.display = "block";
+
+        requestAnimationFrame(() => {
+          item.classList.remove("fade-out");
+        });
       } else {
-        item.classList.add("hide");
+        // ẨN MƯỢT
+        item.classList.add("fade-out");
+
+        setTimeout(() => {
+          item.style.display = "none";
+        }, 300);
       }
     });
   });
 });
+    

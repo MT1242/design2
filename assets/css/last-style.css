@@ -1,0 +1,606 @@
+/* === 1. GLOBAL & COLORS === */
+:root {
+  --primary: #00d4ff;
+  --secondary: #ff0055;
+  --dark: #080808;
+  --card-bg: #151515;
+  --gray: #888;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background:
+    linear-gradient(rgba(8, 8, 8, 0.2), rgba(8, 8, 8, 0.1)),
+    url("https://images.unsplash.com/photo-1614850523296-d8c1af93d400?w=1600");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.section {
+  padding: clamp(48px, 6vw, 80px) 0;
+  position: relative;
+}
+
+.section-inner {
+  max-width: 1874px;
+  margin: auto;
+  padding: 0 24px;
+}
+
+.header-containe {
+  max-width: 1874px;
+  margin: auto;
+}
+
+/* === 2. SLIDER BASE COMPONENTS === */
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.slider-container {
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 10px 0;
+}
+
+.slider-container::-webkit-scrollbar {
+  display: none;
+}
+
+.slide-item {
+  flex: 0 0 300px;
+  transition: 0.3s;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(0, 212, 255, 0.3);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10;
+  transition: 0.3s;
+  backdrop-filter: blur(5px);
+}
+
+.nav-btn:hover {
+  background: var(--primary);
+  color: #000;
+}
+
+.prev-btn {
+  left: 0;
+}
+.next-btn {
+  right: 0;
+}
+
+/* === 3. HEADER & NAVIGATION === */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5% !important;
+  background: rgba(0, 0, 0, 0.9);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #222;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--primary);
+  letter-spacing: 2px;
+}
+
+.logo img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  transition: 0.3s;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.8));
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.nav-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.nav-menu a:hover {
+  color: var(--primary);
+}
+.user-dropdown {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  min-width: 180px;
+  background: #0c0c0c;
+  border: 1px solid #222;
+  border-radius: 14px;
+  padding: 10px 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: 0.3s;
+  z-index: 1001;
+}
+
+.user-area.active .user-dropdown {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+.header-theme {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* giãn giữa moon & user */
+  margin-left: auto; /* đẩy sang phải */
+}
+
+/* === 4. ANNOUNCEMENT BAR === */
+.announcement {
+  background: var(--secondary);
+  padding: 8px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.announcement p {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: bold;
+  animation: marquee 15s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* === 5. THEME TOGGLE === */
+.theme-toggle {
+  margin-left: 20px;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--primary);
+  transition: 0.3s;
+}
+
+.theme-toggle:hover {
+  transform: rotate(20deg) scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.8));
+}
+
+/* === 6. LIGHT MODE === */
+body.light-mode {
+  background: #f4f6f8;
+  color: #111;
+}
+
+body.light-mode header {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid #ddd;
+}
+
+body.light-mode .nav-menu a {
+  color: #111;
+}
+body.light-mode .nav-menu a:hover {
+  color: var(--secondary);
+}
+
+body.light-mode .user-dropdown {
+  background: #fff;
+  border-color: #ddd;
+}
+
+body.light-mode .user-dropdown a {
+  color: #333;
+}
+
+body.light-mode footer,
+body.light-mode .gallery-section,
+body.light-mode .partner-section,
+body.light-mode .client-section {
+  background: #fff;
+}
+
+/* === 7. USER DROPDOWN === */
+.user-area {
+  position: relative;
+}
+
+.user-toggle {
+  font-size: 26px;
+  cursor: pointer;
+  color: var(--primary);
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  min-width: 180px;
+  background: #0c0c0c;
+  border: 1px solid #222;
+  border-radius: 14px;
+  padding: 10px 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: 0.3s;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+  z-index: 1001;
+}
+
+.user-dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  color: #ccc;
+  font-size: 14px;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.user-dropdown a:hover {
+  background: rgba(0, 212, 255, 0.15);
+  color: var(--primary);
+}
+
+.user-area.active .user-dropdown {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+/* === 8. HERO SLIDER === */
+.hero-slider {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: 1s;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid var(--primary);
+}
+/* === 9. CHARACTER CARDS === */
+.card {
+  height: 400px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-back {
+  background: var(--primary);
+  color: #000;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+/* === 10. 3D SHOWCASE SLIDE === */
+.showcase-section {
+  background: radial-gradient(circle, #111, #000);
+  perspective: 1500px;
+  padding: 80px 0;
+}
+
+.showcase-container {
+  position: relative;
+  max-width: 1100px;
+  height: 400px;
+  margin: auto;
+  transform-style: preserve-3d;
+}
+
+.showcase-item {
+  position: absolute;
+  width: 550px;
+  height: 350px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+  transition: 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+  filter: brightness(0.4);
+}
+
+.showcase-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.showcase-item.active {
+  transform: translate(-50%, -50%) scale(1.1);
+  filter: brightness(1);
+  z-index: 10;
+}
+
+.showcase-item.prev {
+  transform: translate(-105%, -50%) scale(0.8) rotateY(30deg);
+  opacity: 0.5;
+}
+
+.showcase-item.next {
+  transform: translate(5%, -50%) scale(0.8) rotateY(-30deg);
+  opacity: 0.5;
+}
+/* === 11. PREMIUM 5 SHOWCASE === */
+.premium5-showcase {
+  background: radial-gradient(circle, #111, #000);
+  padding: 80px 0;
+  perspective: 1800px;
+}
+
+.premium5-viewport {
+  max-width: 1200px;
+  height: 460px;
+  margin: auto;
+  position: relative;
+}
+
+.premium5-slide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 520px;
+  height: 340px;
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0;
+  transition: 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 20px;
+  overflow: hidden;
+  filter: brightness(0.3);
+}
+
+.premium5-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.premium5-slide.is-active {
+  transform: translate(-50%, -50%) scale(1.15);
+  opacity: 1;
+  filter: brightness(1);
+  z-index: 5;
+}
+/* === 12. GALLERY SECTION === */
+.gallery-section {
+  background: radial-gradient(circle, #111, #000);
+}
+
+.gallery-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 45px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 10px 26px;
+  border-radius: 999px;
+  border: 2px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  cursor: pointer;
+  transition: 0.35s;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+  background: var(--primary);
+  color: #000;
+  box-shadow: 0 0 15px var(--primary);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.gallery-item {
+  height: 260px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  transition: 0.4s;
+}
+
+.gallery-item.hide {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.6s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.12);
+}
+
+.gallery-more {
+  margin-top: 50px;
+  text-align: center;
+}
+/* === 13. PARTNER & CLIENT === */
+.partner-section,
+.client-section {
+  padding: 50px 5%;
+  background: #000;
+  border-top: 1px solid #222;
+}
+
+.partner-track {
+  display: flex;
+  gap: 60px;
+  animation: partner-scroll 25s linear infinite;
+  align-items: center;
+}
+
+.partner-track img {
+  height: 50px;
+  opacity: 0.7;
+  transition: 0.3s;
+  filter: grayscale(100%);
+}
+
+.partner-track img:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+@keyframes partner-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.client-card {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.client-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+}
+
+/* === 14. FOOTER === */
+footer {
+  background: #000;
+  padding: 50px 5% 20px;
+  border-top: 1px solid #222;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+}
+
+.footer-col h3 {
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.footer-col a,
+.footer-col p {
+  color: var(--gray);
+  font-size: 14px;
+  line-height: 2;
+}

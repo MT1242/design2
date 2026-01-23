@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Art Studio - Professional Slides</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- <link rel="stylesheet" href="./assets/css/last-style.css"> 
+    <link rel="stylesheet" href="./assets/css/style.css">  -->
+    <link rel="stylesheet" href="./assets/css/combined-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
@@ -15,33 +17,41 @@
 <body>
 
     <header class="section-inner header-container">
-        <div class="logo">
-            <a href="#">
-                <img src="./assets/images/logo.png" alt="Creative Studio Logo">
-            </a>
-        </div>
-
-        <ul class="nav-menu">
-            <li><a href="#">Trang chủ</a></li>
-            <li><a href="#characters">Nhân vật</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#projects">Dự án</a></li>
-            <li><a href="#contact">Liên hệ</a></li>
-        </ul>
-
-        <div class="user-area">
-            <div class="user-toggle">
-                <i class="fas fa-user-circle"></i>
+        <div class="header-wrapper">
+            <div class="logo">
+                <a href="#">
+                    <img src="./assets/images/logo.png" alt="Creative Studio Logo">
+                </a>
             </div>
+            <!-- MENU WRAPPER -->
+            <div class="menu-wrapper">
+                <ul class="nav-menu">
+                    <li><a href="#">Trang chủ</a></li>
+                    <li><a href="#characters">Nhân vật</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#projects">Dự án</a></li>
+                    <li><a href="#contact">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="header-theme">
+                <div class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="user-area">
+                    <div class="user-toggle">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
 
-            <div class="user-dropdown">
-                <a href="#"><i class="fas fa-user"></i> Hồ sơ</a>
-                <a href="#"><i class="fas fa-cog"></i> Cài đặt</a>
-                <a href="#"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+                    <div class="user-dropdown">
+                        <a href="#"><i class="fas fa-user"></i> Hồ sơ</a>
+                        <a href="#"><i class="fas fa-cog"></i> Cài đặt</a>
+                        <a href="#"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+                    </div>
+                </div>
             </div>
         </div>
-
     </header>
+
 
     <div class="announcement">
         <p>⚡ ƯU ĐÃI THIẾT KẾ MÔI TRƯỜNG GAME 3D - GIẢM 20% CHO HỢP ĐỒNG MỚI - LIÊN HỆ NGAY ⚡</p>
@@ -142,6 +152,30 @@
                         </div>
                     </div>
                 </div>
+                    <div class="slide-item">
+                        <div class="card">
+                            <div class="card-inner">
+                                <div class="card-front"><img
+                                        src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=400"></div>
+                                <div class="card-back">
+                                    <h3>Shadow Assassin</h3>
+                                    <p>Di chuyển trong bóng tối</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-item">
+                        <div class="card">
+                            <div class="card-inner">
+                                <div class="card-front"><img
+                                        src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=400"></div>
+                                <div class="card-back">
+                                    <h3>Viking Spirit</h3>
+                                    <p>Thiết kế cổ điển mạnh mẽ</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
             <button class="nav-btn next-btn" onclick="slide('char-slider', 1)"><i
                     class="fas fa-chevron-right"></i></button>
@@ -414,6 +448,7 @@
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/premiumShowcase.js"></script>
     <script src="./assets/js/galleryPartner.js"></script>
+    <script src="./assets/js/themetoggle.js"></script>
 
 
 </body>
