@@ -15,14 +15,32 @@
 <body>
 
     <header class="section-inner header-container">
-        <div class="logo">CREATIVE_STUDIO</div>
+        <div class="logo">
+            <a href="#">
+                <img src="./assets/images/logo.png" alt="Creative Studio Logo">
+            </a>
+        </div>
+
         <ul class="nav-menu">
             <li><a href="#">Trang chủ</a></li>
             <li><a href="#characters">Nhân vật</a></li>
+            <li><a href="#gallery">Gallery</a></li>
             <li><a href="#projects">Dự án</a></li>
             <li><a href="#contact">Liên hệ</a></li>
         </ul>
-        <div class="user-area"><i class="fas fa-user-circle" style="font-size: 24px;"></i></div>
+
+        <div class="user-area">
+            <div class="user-toggle">
+                <i class="fas fa-user-circle"></i>
+            </div>
+
+            <div class="user-dropdown">
+                <a href="#"><i class="fas fa-user"></i> Hồ sơ</a>
+                <a href="#"><i class="fas fa-cog"></i> Cài đặt</a>
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+            </div>
+        </div>
+
     </header>
 
     <div class="announcement">
@@ -221,6 +239,80 @@
                     class="fas fa-chevron-right"></i></button>
         </div>
     </section>
+
+    <section class="section section-inner gallery-section" id="gallery">
+        <h2 class="gallery-title"># GALLERY WORKS</h2>
+
+        <!-- TABS -->
+        <div class="gallery-tabs">
+            <button class="tab-btn active" data-filter="all">TẤT CẢ</button>
+            <button class="tab-btn" data-filter="character">NHÂN VẬT</button>
+            <button class="tab-btn" data-filter="environment">MÔI TRƯỜNG</button>
+            <button class="tab-btn" data-filter="ui">UI / UX</button>
+            <button class="tab-btn" data-filter="weapon">VŨ KHÍ</button>
+        </div>
+
+        <!-- GRID -->
+        <div class="gallery-grid">
+            <div class="gallery-item" data-category="character">
+                <img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?w=800">
+                <div class="gallery-overlay">
+                    <h3>Cyber Warrior</h3>
+                    <p>Character Design</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="environment">
+                <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?w=800">
+                <div class="gallery-overlay">
+                    <h3>Fantasy Valley</h3>
+                    <p>Environment</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="ui">
+                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800">
+                <div class="gallery-overlay">
+                    <h3>Mobile UI</h3>
+                    <p>Game Interface</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="weapon">
+                <img src="https://images.unsplash.com/photo-1542751439-74a96120ef74?w=800">
+                <div class="gallery-overlay">
+                    <h3>Weapon Skins</h3>
+                    <p>AAA Quality</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="environment">
+                <img src="https://images.unsplash.com/photo-1580234811497-9bd7fd2f357d?w=800">
+                <div class="gallery-overlay">
+                    <h3>Ancient Temple</h3>
+                    <p>High-res Texture</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="character">
+                <img src="https://images.unsplash.com/photo-1614027164847-1b2809eb18e4?w=800">
+                <div class="gallery-overlay">
+                    <h3>Dark Mage</h3>
+                    <p>Magic Effect</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- XEM THÊM -->
+        <div class="gallery-more">
+            <a href="#" class="gallery-btn">
+                XEM THÊM
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+
     <section class=" section section-inner client-section">
         <h2 style="text-align:center;color:var(--primary);margin-bottom:30px">
             KHÁCH HÀNG TIN DÙNG
@@ -321,6 +413,7 @@
     <!-- JS CỦA BẠN (NẾU CÓ) -->
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/premiumShowcase.js"></script>
+    <script src="./assets/js/galleryPartner.js"></script>
 
 
 </body>
